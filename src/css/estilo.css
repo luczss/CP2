@@ -1,0 +1,25 @@
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── VARIÁVEIS ── */
+:root {
+  --bg:        #111;
+  --bg2:       #161616;
+  --card:      #1a1a1a;
+  --border:    #2a2a2a;
+  --border2:   #333;
+  --texto:     #e8e8e8;
+  --suave:     #666;
+  --suave2:    #444;
+  --branco:    #fff;
+  --acento:    #f0f0f0;
+  --destaque:  #e5e5e5;
+}
