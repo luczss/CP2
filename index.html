@@ -5,42 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CP2-WebDev</title>
     <!--css-->
-    <link rel="stylesheet"href="./src/css/estilo.css"/pages/loja.html>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet"href="../src/css/estilo.css">
 </head>
 <body>
+
+    <div class="toast" id="toast"></div>
+
+  <!-- DRAWER CARRINHO -->
+  <div class="overlay" id="overlay" onclick="fecharOverlay(event)">
+    <div class="drawer">
+      <div class="drawer-header">
+        <span class="drawer-titulo">Carrinho</span>
+        <button class="drawer-fechar" onclick="toggleDrawer()">✕</button>
+      </div>
+      <div class="drawer-itens" id="drawer-itens"></div>
+      <div class="drawer-footer" id="drawer-footer"></div>
+    </div>
+  </div>
     <!--MENU-->
     <nav>
         <a href="index.html" class="nav-logo">Nerdshelf</a>
         <ul class="nav-links">
             <li><a href="index.html" class="ativo">Início</a></li>
-            <li><a href="pages/loja.html">Loja / Carrinho</a></li>
             <li><a href="pages/sobre.html">Sobre</a></li>
         </ul>
+        <button class="nav-cart" onclick="toggleDrawer()">
+      Carrinho <span class="cart-badge" id="badge">0</span>
+    </button>
+  </nav>
     <!--CABEÇALHO-->
         <header class="hero">
-            <h1>Figures<span>Épicas</span><br>para colecionadores</h1>
-            <p>As melhores action figures do universo, entregues na sua porta.</p>
+            <h1>Action<br><em>Figures</em></h1>
+            <p>As melhores Action Figures do universo, direto pra sua prateleira.</p>
         </header>
     <!-- ÁREA DOS PRODUTOS -->
-        <main class="secao-produtos">
-            <h2 class="secao-titulo">Produtos em Destaque</h2>
+    <section class="secao">
+    <div class="secao-header">
+        <span class="secao-titulo">Produtos</span>
+        <span class="secao-count" id="count-label">5 itens</span>
+    </div>
+        <div class="filtros" id="filtros"></div>
+    <!-- Cards gerados pelo JavaScript via DOM -->
+    <div class="grid" id="grid-produtos"></div>
+    </section>
+
     <!--js completa-->        
         <div class="grid-produtos" id="grid-produtos"></div>
         </main>
         <footer>
         <p>&copy; 2026 <span>Nerdsshelf</span></p>
         </footer>
-    </nav>
-
-
-
-
-
-
-
-
-
     
+
     <!--js-->
     <script src="src/js/script.js"></script>
 </body>

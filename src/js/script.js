@@ -56,6 +56,15 @@ let filtroAt   = "Todos";
 const fmt   = v => v.toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
 const total = () => carrinho.reduce((acc, i) => acc + i.preco * i.quantidade, 0);
 
+function salvarCarrinho() {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+function carregarCarrinho() {
+  const salvo = localStorage.getItem("carrinho");
+  if (salvo) carrinho = JSON.parse(salvo);
+}
+
 function toast(msg) {
   const el = document.getElementById("toast");
   el.textContent = msg;
@@ -76,6 +85,7 @@ function adicionarAoCarrinho(id) {
   else carrinho.push({ ...produto, quantidade: 1 });
 
   descontoAp = false;
+  salvarCarrinho();
   atualizarBadge();
   renderDrawer();
   toast(produto.nome + " adicionado");
@@ -91,6 +101,7 @@ function adicionarAoCarrinho(id) {
 function remover(id) {
   carrinho = carrinho.filter(i => i.id !== id);
   descontoAp = false;
+  salvarCarrinho();
   atualizarBadge();
   renderDrawer();
 }
@@ -101,6 +112,7 @@ function altQtd(id, delta) {
   item.quantidade += delta;
   if (item.quantidade <= 0) { remover(id); return; }
   descontoAp = false;
+  salvarCarrinho();
   atualizarBadge();
   renderDrawer();
 }
@@ -117,6 +129,7 @@ function finalizarCompra() {
   alert("Compra finalizada!\n" + totalFinal + "\n\nObrigado pela compra!");
   carrinho = [];
   descontoAp = false;
+  salvarCarrinho();
   atualizarBadge();
   renderDrawer();
   toggleDrawer();
@@ -220,7 +233,9 @@ function renderProdutos() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  carregarCarrinho();
   renderFiltros();
   renderProdutos();
   renderDrawer();
+  atualizarBadge();
 });

@@ -23,31 +23,39 @@
   </div>
 
   <nav>
-    <a href="loja.html" class="nav-logo">Nerd<span>Shelf</span></a>
+    <a href="../index.html" class="nav-logo">Nerd<span>Shelf</span></a>
     <ul class="nav-links">
-      <li><a href="loja.html" class="ativo">Início</a></li>
+      <li><a href="../index.html" class="ativo">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
     </ul>
     <button class="nav-cart" onclick="toggleDrawer()">
       Carrinho <span class="cart-badge" id="badge">0</span>
     </button>
   </nav>
-
+  <!-- HERO -->
   <div class="hero">
-    <p class="hero-eyebrow">Coleção 2026</p>
-    <h1>Action<br><em>Figures</em></h1>
-    <p>As melhores figuras de ação do universo, direto pra sua prateleira.</p>
+    <p class="hero-eyebrow">Resumo da compra</p>
+    <h1>Seu<br><em>Carrinho</em></h1>
+    <p>Confira os itens selecionados e finalize sua compra.</p>
     <div class="hero-divider"></div>
   </div>
-
-  <section class="secao">
+  <!-- CARRINHO ESTÁTICO COM REDUCE -->
+    <section class="secao">
     <div class="secao-header">
-      <span class="secao-titulo">Produtos</span>
-      <span class="secao-count" id="count-label">5 itens</span>
+      <span class="secao-titulo">Itens no carrinho</span>
     </div>
-    <div class="filtros" id="filtros"></div>
-    <div class="grid" id="grid-produtos"></div>
-  </section>
+    <!-- Lista gerada pelo JS via DOM -->
+    <ul class="carrinho-lista" id="carrinho-lista"></ul>
+    <div class="resumo-box">
+      <div class="resumo-linha" id="linha-desconto" style="display:none;"></div>
+      <div class="resumo-linha total">
+        <span class="label">Total da Compra</span>
+        <h2 class="valor" id="total-compra">R$ 0,00</h2>
+      </div>
+    </div>
+      <button class="btn-desc" id="btn-desconto">Aplicar desconto de 10%</button>
+      <button class="btn-fin" id="btn-finalizar">Finalizar compra</button>
+    </section>
 
   <footer>&copy; 2026 NerdShelf</footer>
   <script src="../src/js/script.js"></script>
