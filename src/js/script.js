@@ -6,14 +6,16 @@ const produtos = [
         nome:"Monkey D. Luffy",
         descricao:"Edição gear five com efeitos e base o NIKA ",
         preco:349.99,
+        img:"../src/assets/img/luffy.jpg",
 
     },
     {
         id:2,
-        badge:"DC Comics",
-        nome:"Batman Dark Knight",
-        descricao:"Edição premium com capa removivel e batarangues inclusos.",
-        preco:319.90,
+        badge:"Marvel",
+        nome:"Deadpool",
+        descricao:"Edição premium,pistola e mini figuras do Dogpool e Baby Deadpool.",
+        preco:549.90,
+        img:"../src/assets/img/deadpool.jpg",
 
     },
     {
